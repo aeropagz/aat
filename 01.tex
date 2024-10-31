@@ -73,17 +73,16 @@ $$dom(R) = \emptyset \neq X$$
 \section{}
 Let $(S, \cdot)$, $(T, *)$ be two semigroups and $f: S \rightarrow T$ be a partial semigroup homomorphismus, then we have $f(S) \leq_{sg} T$ with
 \begin{align}
-    f(S) * f(s') = f(s, s') \label{eq1}\tag{1}
+    f(s) * f(s') = f(s, s') \label{eq1}\tag{1}
 \end{align}
-For $f(S)$ to be subsemigroup of $T$ iff $f(S)$ is closed under $*$.
-For it to be closed under $*$ means that 
+$f(S)$ is a subsemigroup of $T$ iff $f(S)$ is closed under $*$:
 $$\forall x,y \in f(S) : x * y \in f(S)$$
 Since $f$ is a semigroup homomorphismus \eqref{eq1} holds true, thus
 \begin{align}
-    x * y = f(f^{-1}(x) \cdot f^{-1}(y)) \label{eq2}\tag{2}
+    \exists a,b \in S : x * y = f(a) * f(b) = f(a \cdot b) \label{eq2}\tag{2}
 \end{align}
-and since $(S, \cdot)$ is a semigroup, it is closed under $\cdot$ therefore
-$$f^{-1}(x) \cdot f^{-1}(y) \in S$$
+and since $(S, \cdot)$ is a semigroup, it is closed under $\cdot$, hence
+$$a \cdot b \in S$$
 and with this \eqref{eq2} holds true and therefore the initial implication of Lemma 2.49.
 \qed
 
