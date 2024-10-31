@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{0}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+\chapter{}
+\section{}
+We show that $R^{-1} \subseteq Y \times X$ is a partial function if $R \subseteq X \times Y$ is injective by proofing $R^{-1}$ satisfies the right uniquess condition
+\begin{align*}
+    (y,x), (y,x') \in R^{-1} \Rightarrow x = x'.
+\end{align*}
+Since R is injective the following holds true:
+\begin{align*}
+    (x,y), (x',y') \in R | x \neq x' \Rightarrow y \neq y'\label{eq0}\tag{1}
+\end{align*}
+Thus 
+\begin{align*}
+    (y,x), (y,x') \in R^{-1} | (x,y), (x', y) \in R  \Rightarrow x = x'
+\end{align*}
+because $x \neq x'$ contradicts \eqref{eq0}.
+\qed
+
+\section{}
+$\emptyset \subseteq \emptyset \times Y$:
+First we show that $\emptyset \subseteq \emptyset \times Y$ is a partial function.
+By definition $$(x,y), (x',y') \in R \Rightarrow y = y'$$ the empty relation is right-unique because we have no elements in the relation.
+Further we show totalness with $dom(R) = \emptyset$.
+By Definition
+$$dom(R) = \{a \in A | \exists a' \in A: (a,a') \in R\}$$
+the domain of the empty relation is also empty due missing elements and therfore $dom(R) = \emptyset = \emptyset$.
+
+\vspace{1cm}
+$\emptyset \subseteq X \times \emptyset$: This relation is also a partial function because the relation is also empty.
+But it is not total because the preimage is $X$ and the domain is $\emptyset$.
+Therefore
+$$dom(R) = \emptyset \neq X$$
+\qed
+
+\section{}
+Let $(S, \cdot)$, $(T, *)$ be two semigroups and $f: S \rightarrow T$ be a partial semigroup homomorphismus, then we have $f(S) \leq_{sg} T$ with
+\begin{align}
+    f(S) * f(s') = f(s, s') \label{eq1}\tag{1}
+\end{align}
+For $f(S)$ to be subsemigroup of $T$ iff $f(S)$ is closed under $*$.
+For it to be closed under $*$ means that 
+$$\forall x,y \in f(S) : x * y \in f(S)$$
+Since $f$ is a semigroup homomorphismus \eqref{eq1} holds true, thus
+\begin{align}
+    x * y = f(f^{-1}(x) \cdot f^{-1}(y)) \label{eq2}\tag{2}
+\end{align}
+and since $(S, \cdot)$ is a semigroup, it is closed under $\cdot$ therefore
+$$f^{-1}(x) \cdot f^{-1}(y) \in S$$
+and with this \eqref{eq2} holds true and therefore the initial implication of Lemma 2.49.
+\qed
+
+\section{}
+
+\end{document}
