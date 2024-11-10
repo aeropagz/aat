@@ -88,4 +88,18 @@ and with this \eqref{eq2} holds true and therefore the initial implication of Le
 
 \section{}
 
+To prove that $\sim\textsubscript{k} \subseteq~ \Sigma^* \times \Sigma^*$ is a congruence relation for some given $k \in \mathcal{N}$ we first show that given two words $u, v \in \Sigma*$ which are $k-Simon-congruent$ they are also $(k-1)-Simon-congruent$ for $k \in \mathcal{N}$ with $ScatFact\textsubscript{k-1}(u) = ScatFact\textsubscript{k-1}(v)$.
+
+We prove this claim using a prove by contradiction, therefore, we assume that we are given two words $u, v \in \Sigma^*$ which are $k-Simon-congruent$, however, not $(k-1)-Simon-congruent$.
+This means that the $ScatFact\textsubscript{k-1}(u) \neq ScatFact\textsubscript{k-1}(v)$. This means that there exists at least one object in WLOG. $ScatFact\textsubscript{k-1}(u)$ which does not exist in $ScatFact\textsubscript{k-1}(v)$, lets call this element $w$.
+Since, $ScatFact\textsubscript{k}(u)$ contains all ScatterFactors of $u$ this means that there exists at least one $w' \in ScatFact\textsubscript{k}(u)$ which contains $w$ (either $wx = w' \lor xw = w' ~|~ x \in u \land |x| = 1$).
+However, $ScatFact\textsubscript{k}(u) = ScatFact\textsubscript{k}(v)$ and therefore, $w' \in ScatFact\textsubscript{k}(v)$.
+Per definition of the ScatFact\textsubscript{k} set, $ScatFact\textsubscript{k-1}(v)$ has to contain all ScatterFactors of v of length $k-1$, therefore also $w$ since $w'$ exists in $v$ and by removing $x$ from $w'$ $w$ is a ScatterFactor of $v$.
+This concludes the prove by contradiction.
+
+To now prove that $\sim\textsubscript{k}$ is a congruence relation for some $k$, we need to show that for $u,v,z \in \Sigma*, u \sim\textsubscript{k} v \implies uz \sim\textsubscript{k} vz$ to prove the right congruence.
+Since, $v$ and $u$ are k-simon-congruent we know that they have the same ScatterFactors for all $n \in k$.
+Since, we concatenate $z$ to both words from the same side, all new ScatterFactors that can be formed, can be formed for both words, because all possible prefixes that can exist in $u$ or $v$ are the same.
+The prove for left congruence is symmetrical, which concludes the prove.
+\qed
 \end{document}

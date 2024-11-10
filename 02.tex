@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{1}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+\chapter{}
+\section{}
+Since the group is finite, we can generate the powers of an element $s \in S$ infinetly.
+However there a only a finite amount of elements in $S$. 
+Thus, there exists an integer $x$ such that $s^x=s$. 
+If $x=z$ we are done, else we multiply both sides with $s^{x-2}$.
+\begin{align*}
+    s^2 \cdot s^{x-2} &= s \cdot s^{x-2} \\
+    (s^{x} \cdot s^{-1}) \cdot (s^{x} \cdot s^{-1}) &= s^{x-1} \\
+    s^{x-1} \cdot s^{x-1} &= s^{x-1} \\
+    (s^{x-1})^2 &= s^{x-1} \\
+\end{align*}
+\qed
+
+\section{}
+First we proof $g,g' \in G, g \sim_H g'$ if $g = hg'$ is an equivalence relation by showing it is reflexive, simmetric and transitive.
+
+Reflexivity:
+Assume $g \sim_H g'$ then we always can choose the neutral element as $h$ with $hg' = g'$. Thus
+$g = g'$ and $g \sim_H g$.
+
+Symmetry:
+Assume $g \sim_H g'$ with $g = hg'$. Then we can add in inverse element $h^{-1}$, which is also in $H$ because it is a group, resulting in $h^{-1}g'= g$.
+Hence, $g' \sim_H g$ is also true.
+
+Transitivity:
+Assume $g \sim_H g'$ and $g' \sim_H g''$ with $g'' \in G$ and $h_1, h_2 \in H: g = h_1g'$, $g' = h_2g''$.
+We can substitute $g'$ resulting in $g = h_1h_2g''$. Since $H$ is closed $h_1h_2$ is also in $H$. 
+Hence, $g \sim_H g''$ is also true.
+
+Since we proofed that $\sim_H$ is a equivalence relation, $G/H$ is partition induced by $\sim_H$.
+\qed
+
+\section{}
+We proof if $G$ is a permutation group on $Q$ then $G$ acts on $Q$.
+Therefore we show that $G$ fullfills the two conditions
+\begin{align*}
+    & \forall q \in Q, g_1,g_2 \in G: q(g_1g_2) = (qg_1)g_2 \label{eq0}\tag{1} \\
+    & g_1,g_2 \in G: \text{if } qg_1 = qg_2 \text{ for all } q \in Q \text{ then } g_1 = g_2 \label{eq1}\tag{2} \\
+\end{align*}
+Hence, G is a group by Lemma 2.89 it is associative and satifies \eqref{eq0}.
+Also permutations are bijective which satifies \eqref{eq1}.
+\qed
+
+\section{}
+$f$ is a monoid morphismus as you can first can combine two words of $\sigma*$ and count the length or count first the length and then add them up.
+For a given word $w \in \sigma*$ its equivalence class is $[|w|]$ with all other words with the same length.
+Since the words of $\sigma*$ can be arbitrary long, the order of the quotion set is infinte.
+\qed
+\end{document}
