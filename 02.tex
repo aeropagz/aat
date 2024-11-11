@@ -43,13 +43,14 @@ Since the group is finite, we can generate the powers of an element $s \in S$ in
 However there a only a finite amount of elements in $S$. 
 Thus, there exists an integer $x$ such that $s^x=s$. 
 If $x=2$ we are done, else we multiply both sides with $s^{x-2}$.
-Then we substitute $s^{(x-1)}$ with $y$ and the result is $y^2 = y'$.
+
 \begin{align*}
     s^2 \cdot s^{x-2} &= s \cdot s^{x-2} \\
     (s^{x} \cdot s^{-1}) \cdot (s^{x} \cdot s^{-1}) &= s^{x-1} \\
     s^{x-1} \cdot s^{x-1} &= s^{x-1} \\
     (s^{x-1})^2 &= s^{x-1} \\
 \end{align*}
+Then we substitute $s^{(x-1)}$ with $y$ and the result is $y^2 = y'$.
 \qed
 
 \section{}
@@ -74,18 +75,29 @@ Since we proofed that $\sim_H$ is a equivalence relation, $G/H$ is partition ind
 
 \section{}
 We proof if $G$ is a permutation group on $Q$ then $G$ acts on $Q$.
-Therefore we show that $G$ fullfills the two conditions
+Therefore we show that $G$ fulfills the two conditions
 \begin{align*}
     & \forall q \in Q, g_1,g_2 \in G: q(g_1g_2) = (qg_1)g_2 \label{eq0}\tag{1} \\
     & g_1,g_2 \in G: \text{if } qg_1 = qg_2 \text{ for all } q \in Q \text{ then } g_1 = g_2 \label{eq1}\tag{2} \\
 \end{align*}
-Hence, G is a group by Lemma 2.89 it is associative and satifies \eqref{eq0}.
-Also permutations are bijective which satifies \eqref{eq1}.
+Hence, G is a group by Lemma 2.89 it is associative and satisfies \eqref{eq0}.
+Also permutations are bijective which satisfies \eqref{eq1}.
 \qed
 
 \section{}
-$f$ is a monoid morphismus as you can first can combine two words of $\Sigma^*$ and count the length or count first the length and then add them up.
-For a given word $w \in \Sigma^*$ its equivalence class is $[|w|]$ with all other words with the same length.
-Since the words of $\Sigma^*$ can be arbitrary long, the order of the quotion set is infinte.
+
+First we prove that $f$ is a semigroup homomorphism. For this the following hast to hold true:
+\begin{equation}
+    f(s) * f(s') = f(s \cdot s')
+\end{equation}
+
+given $w, w' \in \Sigma ^* with |w| = n, |w'| = m : n,m \in \mathbb{N\textsubscript{0}}$
+\begin{equation}
+    f(w)+f(w') = n+m = f(ww')
+\end{equation}
+To now prove that $f$ is a monoid homomorphism we show that f(e) = e' with $e \in \Sigma ^* \land e' \in \mathbb{N\textsubscript{0}}$ with $e$ and $e'$ being the respective neutral elements. THe neutral element of $\Sigma ^*$ is $\epsilon$ the empty word which has a length of $0$, which is the neutral element of the $\mathbb{N\textsubscript{0}}$, therefore, the mapping of $f$ is correct.\\
+
+For a given word $w \in \Sigma ^*$ its equivalence class is $[|w|]$ with all other words with the same length.
+Since the words of $\Sigma ^*$ can be arbitrary long, the order of the quotion set is infinte.
 \qed
 \end{document}
