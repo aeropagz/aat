@@ -42,7 +42,8 @@
 Since the group is finite, we can generate the powers of an element $s \in S$ infinetly.
 However there a only a finite amount of elements in $S$. 
 Thus, there exists an integer $x$ such that $s^x=s$. 
-If $x=z$ we are done, else we multiply both sides with $s^{x-2}$.
+If $x=2$ we are done, else we multiply both sides with $s^{x-2}$.
+Then we substitute $s^{(x-1)}$ with $y$ and the result is $y^2 = y'$.
 \begin{align*}
     s^2 \cdot s^{x-2} &= s \cdot s^{x-2} \\
     (s^{x} \cdot s^{-1}) \cdot (s^{x} \cdot s^{-1}) &= s^{x-1} \\
@@ -55,7 +56,8 @@ If $x=z$ we are done, else we multiply both sides with $s^{x-2}$.
 First we proof $g,g' \in G, g \sim_H g'$ if $g = hg'$ is an equivalence relation by showing it is reflexive, simmetric and transitive.
 
 Reflexivity:
-Assume $g \sim_H g'$ then we always can choose the neutral element as $h$ with $hg' = g'$. Thus
+For all $g \in G$ we have to prove that $g = hg'$, since $H$ is a Subgroup of $G$, it contains the neutral Element of $G$ therefore,
+we can always choose the neutral element for $h$ with $g = hg'$. Thus
 $g = g'$ and $g \sim_H g$.
 
 Symmetry:
@@ -82,8 +84,8 @@ Also permutations are bijective which satifies \eqref{eq1}.
 \qed
 
 \section{}
-$f$ is a monoid morphismus as you can first can combine two words of $\sigma*$ and count the length or count first the length and then add them up.
-For a given word $w \in \sigma*$ its equivalence class is $[|w|]$ with all other words with the same length.
-Since the words of $\sigma*$ can be arbitrary long, the order of the quotion set is infinte.
+$f$ is a monoid morphismus as you can first can combine two words of $\Sigma^*$ and count the length or count first the length and then add them up.
+For a given word $w \in \Sigma^*$ its equivalence class is $[|w|]$ with all other words with the same length.
+Since the words of $\Sigma^*$ can be arbitrary long, the order of the quotion set is infinte.
 \qed
 \end{document}
