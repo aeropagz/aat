@@ -116,8 +116,8 @@ With the following isomorphismus $f$ we can map each equivalence class $[w]$ wit
 \begin{align*}
     f([w]) = 
     \begin{cases}
-        (|\sum_{u \in w}(u)| + 3) \% 7 - 3 & \text{ for } \sum_{u \in w}(u) \geq 0 \\
-        - (|\sum_{u \in w}(u)| + 3) \% 7 - 3 & \text{ for } \sum_{u \in w}(u) < 0 \\
+        ((|\sum_{u \in w}(u)| + 3) \text{ mod } 7) - 3 & \text{ for } \sum_{u \in w}(u) \geq 0 \\
+        -((|\sum_{u \in w}(u)| + 3) \text{ mod } 7) - 3 & \text{ for } \sum_{u \in w}(u) < 0 \\
     \end{cases}
 \end{align*}
 Here we sum up all right and left shift operations resulting in an all in all right or left shift (or no shift if 0).
