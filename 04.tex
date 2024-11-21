@@ -1,0 +1,94 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{3}
+
+\def\lsk{\left<}
+\def\rsk{\right>}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+\chapter{}
+\section{}
+We can find a state machine homomorphism (SMH) for $M$ and $M'$ which is monomorphic but not epimorphic or isomorphic.
+To prove this conjecture we will first show that there can not exist a epimorphic SMH. For a SMH $f$ to be epimorphic it has to be surjective.
+This means that given $f=(\alpha, \beta)$:
+\begin{equation}
+    \alpha : Q \rightarrow Q' \land \beta : \Sigma \rightarrow \Sigma'
+\end{equation}
+the range of $\alpha$ and $\beta$ have to be equal to $Q'$ and $\Sigma'$ respectively.
+
+Lets assume that $\alpha$ maps to $Q'$ and $\beta$ to $\Sigma'$.
+This means that we have to map the states of $Q$ to the states of $Q'$.
+The state $r\textsubscript{1}$ is isolated whilst the states $r\textsubscript{2}$ and $r\textsubscript{3}$ form a cyclic state machine with stern with stern length and cycle length of $1$.
+Therefore, we would need to find a similar structure in $Q$ to map the states to $Q'$.
+If we look for these structures in $M$ we can find an isolated state $q\textsubscript{4}$ when we disregard $c$.
+However, we can only find a cyclic state machine with stern if we either disregard $a,c$ or $b,c$ since the combination of $b$ and $c$ allows us to always move between the states of $q\textsubscript{i}$ $| i \in {3}$.
+Thus, we can not find a mapping of $\beta$ to $\Sigma'$, since, we need to omit either at least $2$ out of $3$ elements of $\Sigma$ to be able to represent the structure of $M$, therefore, either $\alpha$ or $\beta$ can not be surjective.
+
+To prove that $M$ and $M'$ are monomorphic we only have to provide a state machine homomorphism that is injective. For this we map $a$ onto $a'$ and $q\textsubscript{4}$ onto $r\textsubscript{1}$. $\alpha$ is injective because there only exists a single element in the relation, therefore, there can only exists a one-to-one mapping.
+For $\beta$ this is the same case as only the tuple $(q\textsubscript{4}, r\textsubscript{1})$ exists in $\beta$. 
+Now we need to show that
+\begin{equation}
+\forall q \in Q \land \forall a \in \Sigma : \alpha(q\delta\textsubscript{a}) \subseteq (\alpha(q))\delta'\textsubscript{$\beta(a)$}
+\end{equation}
+
+Since, there only exist one element with one state we can apply the transition function for the element $a$ on the state $q\textsubscript{4}$ and then apply $\alpha$.
+$\delta\textsubscript{a}$ on $q\textsubscript{4}$ results in $q\textsubscript{4}$, and if we then apply $\alpha$ this results in $r\textsubscript{1}$.
+If we first apply $\alpha$ on $q\textsubscript{4}$ this results in $r\textsubscript{1}$.
+And if we then apply $\delta'\textsubscript{$\beta(a)$}$ on $r\textsubscript{1}$ it stays in $r\textsubscript{1}$ which proves that it is a state machine morphism. 
+
+This concludes that $M$ and $M'$ are monomorphic.
+\qed
+
+\section{}
+We show that $\overline{TS(M)}=TS(M')=(Q,S')$. By definition
+\begin{align*}
+    \overline{TS(M)}=(Q,\lsk S \cup \overline{Q} \rsk)
+\end{align*}
+$S'$ must contain for all $q \in Q$ the corresponding $\overline{q}$.
+Notice $S'= \Sigma^+/\sim_{M'}$.
+We assume that for each $q \in Q \subseteq \Sigma$ exists a congruence classes $[q] \in S'$.
+
+Proof:
+Due to the definition of $\delta'_a$ for all $q_1,q_2 \in Q \subseteq \Sigma$ with $q_1 \neq q_2$ follows $\delta'_{q_1}(q) \neq \delta'_{q_2}(q)$ for all $q \in Q$.
+Therefore, for all $q \in Q$ exists $[q]$ and $[q] \in \Sigma^+/\sim_{M'}$.
+
+Since $\lsk F(M') \rsk \simeq S(M')$ for all $q \in Q$ also $\delta'_q \in F(M')$.
+Finally $\delta'_q = \overline{q}$ because $\delta'_q$ maps all states to $q$ and is therefore a constant mapping which proves that $\overline{Q} \subseteq S'$ and further $\overline{TS(M)}=(Q,\lsk S \cup \overline{Q} \rsk)=TS(M')=(Q,\lsk S' \cup \overline{Q} \rsk)$.
+\qed
+\section{}
+\section{}
+\end{document}
