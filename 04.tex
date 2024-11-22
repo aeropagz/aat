@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{0}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+
+\setcounter{chapter}{3}
+\chapter{}
+\section{}
+
+We can find a state machine homomorphism (SMH) for $M$ and $M'$ which is monomorphic but not epimorphic or isomorphic. To prove this conjecture we will first show that there can not exist a epimorphic SMH. For a SMH $f$ to be epimorphic it has to be surjective.
+This means that given $f=(\alpha, \beta)$:
+\begin{equation}
+    \alpha : Q \rightarrow Q' \land \beta : \Sigma \rightarrow \Sigma'
+\end{equation}
+the range of $\alpha$ and $\beta$ have to be equal to $Q'$ and $\Sigma'$ respectively.
+
+Lets assume that $\alpha$ maps to $Q'$ and $\beta$ to $\Sigma'$. This means that we have to map the states of $Q$ to the states of $Q'$. The state $r\textsubscript{1}$ is isolated whilst the states $r\textsubscript{2}$ and $r\textsubscript{3}$ form a cyclic state machine with stern with stern length and cycle length of $1$. Therefore, we would need to find a similar structure in $Q$ to map the states to $Q'$. If we look for these structures in $M$ we can find an isolated state $q\textsubscript{4}$ when we disregard $c$. However, we can only find a cyclic state machine with stern if we either disregard $a,c$ or $b,c$ since the combination of $b$ and $c$ allows us to always move between the states of $q\textsubscript{i}$ $| i \in {3}$. Thus, we can not find a mapping of $\beta$ to $\Sigma'$, since, we need to omit either at least $2$ out of $3$ elements of $\Sigma$ to be able to represent the structure of $M$, therefore, either $\alpha$ or $\beta$ can not be surjective.
+
+To prove that $M$ and $M'$ are monomorphic we only have to provide a state machine homomorphism that is injective. For this we map $a$ onto $a'$ and $q\textsubscript{4}$ onto $r\textsubscript{1}$. $\alpha$ is injective because there only exists a single element in the relation, therefore, there can only exists a one-to-one mapping. For $\beta$ this is the same case as only the tuple $(q\textsubscript{4}, r\textsubscript{1})$ exists in $\beta$. 
+Now we need to show that
+\begin{equation}
+\forall q \in Q \land \forall a \in \Sigma : \alpha(q\delta\textsubscript{a}) \subseteq (\alpha(q))\delta'\textsubscript{$\beta(a)$}
+\end{equation}
+
+Since, there only exist one element with one state we can apply the transition function for the element $a$ on the state $q\textsubscript{4}$ and then apply $\alpha$. $\delta\textsubscript{a}$ on $q\textsubscript{4}$ results in $q\textsubscript{4}$, and if we then apply $\alpha$ this results in $r\textsubscript{1}$. If we first apply $\alpha$ on $q\textsubscript{4}$ this results in $r\textsubscript{1}$. And if we then apply $\delta'\textsubscript{$\beta(a)$}$ on $r\textsubscript{1}$ it stays in $r\textsubscript{1}$ which proves that it is a state machine morphism. 
+
+This concludes that $M$ and $M'$ are monomorphic.
+\qed
+
+\section{}
+
+For Exercise 2 we need to prove that $TS(M')$ = $\overline{\mbox{TS(M)}}$ holds. The closure of a transformation semigroup $A = (Q, S)$ is defined as 
+\begin{equation}
+    \overline{\mbox{A}} = (Q, \langle S \cup \overline{\mbox{Q}} \rangle
+\end{equation}
+.
+For $TS(M')$ = $\overline{\mbox{TS(M)}}$ to hold true, $TS(M')$ has to include all possible transformations from $S$ and $Q$. Since, there exists a $\delta\textsubscript{a}$ for all $a \in \Sigma$ as well as the identity function for each state of q with $\delta'\textsubscript{a}(q) = a$ for all $a \in Q$ there can not exist any other transformations in $TS(M')$ that are not included in the closure of $TS(M) = \overline{\mbox{TS(M)}}$. Therefore, $TS(M')$ = $\overline{\mbox{TS(M)}}$ holds true.
+\qed
+\end{document}
