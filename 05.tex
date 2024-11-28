@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{3}
+
+\def\lsk{\left<}
+\def\rsk{\right>}
+\DeclareMathOperator{\mmod}{mod}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+
+\setcounter{chapter}{4}
+\chapter{}
+\section{}
+We have $M = (Q, \Sigma, \delta)$ and $\pi = \{H_i\}_{i \in I}$ a admissible partion of $Q$.
+If $M$ is complete then for all $i \in I$ and for all $a \in \Sigma$ there exists \textbf{exactly one} partion such that for $j \in I$ $H_i\delta_a \subseteq H_j$.
+By definition of $\pi$ (Lemma 3.48) there exists \textbf{at least one} $j \in I$ with $H_i\delta_a \subseteq H_j$.
+Notice $H_i\delta_a \neq \emptyset$ because $M$ is complete.
+
+We show that there only exists \textbf{exactly one} $j \in I$.
+Suppose there exists $j,k \in I$ with $H_i\delta_a \subseteq H_{j,k}$ for all $a \in \Sigma$ and $j \neq k$.
+We choose an arbitray $q \in H_i$ then the following must hold:
+\begin{align*}
+    q\delta_a &= q_j \in H_j \\
+    q\delta_a &= q_k \in H_k \\
+    q_j &\neq q_k
+\end{align*}
+This is a contraction because $q\delta_a$ is not right unique anymore and therefore $q_j = q_k$ and $H_j = H_k$.
+
+\section{}
+\begin{itemize}
+    \item cases for only one admissible partition and for $|Q|$ admissible partitions
+    \item one partition $\implies |qS| = 1$: 
+        \begin{itemize}
+            \item all states are in $R$
+            \item $H_is = H_i$ with $i \in [1]$
+            \item for all $q \in Q$: $q \in H_i$ and therefore $Q = H_i$
+            \item for all $q,q' \in Q$: $qs = q'$ with $q,q' \in H_i$ because $q \sim_R q'$ 
+            \item proof of contradiction with $q' \notin H_i \implies (q,q') \notin R$ which contradicts first statement.
+        \end{itemize}
+    \item $|Q|$ partitions $\implies qS = Q$:
+        \begin{itemize}
+            \item $|Q|$ partions implies each state own partition, $R = \{(q_i, q_i) | i \in [|Q|\}$
+            \item for all $q \in Q$ and $s \in S$: $qs = q$ with $q \in H_i, i \in [|Q|]$
+            \item suppose $qs = q'$ with $q \neq q'$ then $(q, q') \in R$ which contradicts first statement
+        \end{itemize}
+\end{itemize}
+
+\section{}
+
+
+\section{}
+\end{document}
