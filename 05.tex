@@ -56,31 +56,43 @@ We choose an arbitray $q \in H_i$ then the following must hold:
 \begin{align*}
     q\delta_a &= q_j \in H_j \\
     q\delta_a &= q_k \in H_k \\
-    q_j &\neq q_k
 \end{align*}
-This is a contraction because $q\delta_a$ is not right unique anymore and therefore $q_j = q_k$ and $H_j = H_k$.
+Notice $q_j \neq q_k$ because $H_j \cap H_k = \emptyset$.
+This is a contraction because $q\delta_a$ is not right unique anymore.
 
 \section{}
+We do a case distinction.
+
+$\pi = \{Q\}$:
+Notice we have only one equivalence class $H_1 = Q$.
+Hence, all states are related by the admissible relation $R$.
+Thus, $(q,q') \in R | \forall q,q' \in Q$ and also $(qs, q's) \in R$ for all $s \in S$ with $qs,q's \neq \emptyset$.
+Therefore $H_1s = H_1$ for all $s \in S$.
+
+
+$\pi = {[q] |\ \forall q \in Q}$:
 \begin{itemize}
     \item cases for only one admissible partition and for $|Q|$ admissible partitions
-    \item one partition $\implies |qS| = 1$: 
+    \item one equivalence class $\pi = H_1$ $\implies |qS| = 1$: 
         \begin{itemize}
-            \item all states are in $R$
-            \item $H_is = H_i$ with $i \in [1]$
-            \item for all $q \in Q$: $q \in H_i$ and therefore $Q = H_i$
-            \item for all $q,q' \in Q$: $qs = q'$ with $q,q' \in H_i$ because $q \sim_R q'$ 
-            \item proof of contradiction with $q' \notin H_i \implies (q,q') \notin R$ which contradicts first statement.
+            \item all states are related, $(q,q') \in R | \forall q,q' \in Q$
+            \item $q \in H_1$ for all $q \in Q$  and therefore $Q = H_1 = [q]_R$
+            \item $H_1s = H_1$
+            \item $qs = q'$ for all $q,q' \in H_1$
+            \item suppose $q' \notin H_i$, thus $q \notin Q$ and therefore not included in the transformation semigroup
         \end{itemize}
-    \item $|Q|$ partitions $\implies qS = Q$:
+    \item $|Q|$ equivalence classes $\implies qS = Q$:
         \begin{itemize}
-            \item $|Q|$ partions implies each state own partition, $R = \{(q_i, q_i) | i \in [|Q|\}$
-            \item for all $q \in Q$ and $s \in S$: $qs = q$ with $q \in H_i, i \in [|Q|]$
+            \item $|Q|$ equivalence classes implies each state has own equivalence classes, $R = \{(q_i, q_i) | i \in [|Q|\}$
+            \item $qs = q$ for all $q \in Q$ and $s \in S$ with $q \in H_i, i \in [|Q|]$
             \item suppose $qs = q'$ with $q \neq q'$ then $(q, q') \in R$ which contradicts first statement
         \end{itemize}
 \end{itemize}
+
 
 \section{}
 
 
 \section{}
 \end{document}
+
