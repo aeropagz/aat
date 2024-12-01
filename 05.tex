@@ -61,13 +61,22 @@ Notice $q_j \neq q_k$ because $H_j \cap H_k = \emptyset$.
 This is a contraction because $q\delta_a$ is not right unique anymore.
 
 \section{}
-We do a case distinction.
+We proove for a transformation semigroup transformation $(Q,S)$ which is irreducable that for all $q \in Q$ either $|qS| = 1$  or $qS = Q$.
+First we determine $qS$ for both trivial partitions.
+Assume $|qS| = 1$ for any $q \in Q$. This means we find one arbitray but fixed $q' \in Q$ such that $qS = q'$.
+Moreover, $q = H_i$ and $q' = H_j$ with $i,j \in I$, it is the trival partition of singleton classes.
+Now assume $qS = Q$ for any $q \in Q$. This means for each $s \in S$ with $qs = q'$ we map to a different $q'$ such that all $q' = Q$.
+Thus, $qS$ is the trivial partition of $Q$ itself.
 
-$\pi = \{Q\}$:
-Notice we have only one equivalence class $H_1 = Q$.
-Hence, all states are related by the admissible relation $R$.
-Thus, $(q,q') \in R | \forall q,q' \in Q$ and also $(qs, q's) \in R$ for all $s \in S$ with $qs,q's \neq \emptyset$.
-Therefore $H_1s = H_1$ for all $s \in S$.
+
+Suppose $|qS| > 1 \land qS \neq Q$.
+Suppose we miss one $q' \in Q$ then $qs$ would not build a trivial partion.
+
+% $\pi = \{Q\}$:
+% Notice we have only one equivalence class $H_1 = Q$.
+% Hence, all states are related by the admissible relation $R$.
+% Thus, $(q,q') \in R | \forall q,q' \in Q$ and also $(qs, q's) \in R$ for all $s \in S$ with $qs,q's \neq \emptyset$.
+% Therefore $H_1s = H_1$ for all $s \in S$.
 
 
 $\pi = {[q] |\ \forall q \in Q}$:
