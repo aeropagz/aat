@@ -61,42 +61,14 @@ Notice $q_j \neq q_k$ because $H_j \cap H_k = \emptyset$.
 This is a contraction because $q\delta_a$ is not right unique anymore.
 
 \section{}
-We proove for a transformation semigroup transformation $(Q,S)$ which is irreducable that for all $q \in Q$ either $|qS| = 1$  or $qS = Q$.
-First we determine $qS$ for both trivial partitions.
+We proove for a transformation semigroup transformation $(Q,S)$ which is irreducable such that for all $q \in Q$ either $|qS| = 1$  or $qS = Q$.
 Assume $|qS| = 1$ for any $q \in Q$. This means we find one arbitray but fixed $q' \in Q$ such that $qS = q'$.
 Moreover, $q = H_i$ and $q' = H_j$ with $i,j \in I$, it is the trival partition of singleton classes.
-Now assume $qS = Q$ for any $q \in Q$. This means for each $s \in S$ with $qs = q'$ we map to a different $q'$ such that all $q' = Q$.
-Thus, $qS$ is the trivial partition of $Q$ itself.
+Now assume $qS = Q$ for any $q \in Q$. This means for each $s \in S$ with $qs = q'$ we map to a different $q'$ such that $\bigcup q' = Q$.
+Thus, we get the trivial partition of $Q$.
 
 
-Suppose $|qS| > 1 \land qS \neq Q$.
-Suppose we miss one $q' \in Q$ then $qs$ would not build a trivial partion.
-
-% $\pi = \{Q\}$:
-% Notice we have only one equivalence class $H_1 = Q$.
-% Hence, all states are related by the admissible relation $R$.
-% Thus, $(q,q') \in R | \forall q,q' \in Q$ and also $(qs, q's) \in R$ for all $s \in S$ with $qs,q's \neq \emptyset$.
-% Therefore $H_1s = H_1$ for all $s \in S$.
-
-
-$\pi = {[q] |\ \forall q \in Q}$:
-\begin{itemize}
-    \item cases for only one admissible partition and for $|Q|$ admissible partitions
-    \item one equivalence class $\pi = H_1$ $\implies |qS| = 1$: 
-        \begin{itemize}
-            \item all states are related, $(q,q') \in R | \forall q,q' \in Q$
-            \item $q \in H_1$ for all $q \in Q$  and therefore $Q = H_1 = [q]_R$
-            \item $H_1s = H_1$
-            \item $qs = q'$ for all $q,q' \in H_1$
-            \item suppose $q' \notin H_i$, thus $q \notin Q$ and therefore not included in the transformation semi group
-        \end{itemize}
-    \item $|Q|$ equivalence classes $\implies qS = Q$:
-        \begin{itemize}
-            \item $|Q|$ equivalence classes implies each state has own equivalence classes, $R = \{(q_i, q_i) | i \in [|Q|\}$
-            \item $qs = q$ for all $q \in Q$ and $s \in S$ with $q \in H_i, i \in [|Q|]$
-            \item suppose $qs = q'$ with $q \neq q'$ then $(q, q') \in R$ which contradicts first statement
-        \end{itemize}
-\end{itemize}
+Finally suppose $|qS| > 1 \land qS \neq Q$ for any $q \in Q$. Then $qS$ maps into two or more patitions (up to $|Q|-1$) which contradicts the condition of $(Q,S)$ being irreducable.
 
 
 \section{}
