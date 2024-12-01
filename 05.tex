@@ -52,7 +52,7 @@ Notice $H_i\delta_a \neq \emptyset$ because $M$ is complete.
 
 We show that there only exists \textbf{exactly one} $j \in I$.
 Suppose there exists $j,k \in I$ with $H_i\delta_a \subseteq H_{j,k}$ for all $a \in \Sigma$ and $j \neq k$.
-We choose an arbitray $q \in H_i$ then the following must hold:
+We choose an arbitrary $q \in H_i$ then the following must hold:
 \begin{align*}
     q\delta_a &= q_j \in H_j \\
     q\delta_a &= q_k \in H_k \\
@@ -79,7 +79,7 @@ $\pi = {[q] |\ \forall q \in Q}$:
             \item $q \in H_1$ for all $q \in Q$  and therefore $Q = H_1 = [q]_R$
             \item $H_1s = H_1$
             \item $qs = q'$ for all $q,q' \in H_1$
-            \item suppose $q' \notin H_i$, thus $q \notin Q$ and therefore not included in the transformation semigroup
+            \item suppose $q' \notin H_i$, thus $q \notin Q$ and therefore not included in the transformation semi group
         \end{itemize}
     \item $|Q|$ equivalence classes $\implies qS = Q$:
         \begin{itemize}
@@ -91,7 +91,13 @@ $\pi = {[q] |\ \forall q \in Q}$:
 
 
 \section{}
-
+\begin{enumerate}
+    \item Since, $Aut(M)$ is the set of all state machine automorphisms, this means that $f$ is a bijective function on $Q \times Q$, therefore, it only permutates the states of M. As, $\Sigma$ is  mapped to $\Sigma$ by the identity function, the transactions $\delta$ of $M$ do not change.\\
+    Given Lemma 2.89, we know that given a set $Q$, $(S_Q, \circ, id_Q)$ is a group. We have already established that $Aut(M)$ only permutates states of $M$, and as $Aut(M)$ includes 'all' state machine automorphisms, it also includes the identity function.
+    This concludes the proof, that $Aut(M)$ is a group.
+    \qed
+    \item Assume, that there exists a $q \in Q$ such that $f(q) = q$. 
+\end{enumerate}
 
 \section{}
 \end{document}
