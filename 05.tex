@@ -105,7 +105,19 @@ $\pi = {[q] |\ \forall q \in Q}$:
     Given Lemma 2.89, we know that given a set $Q$, $(S_Q, \circ, id_Q)$ is a group. We have already established that $Aut(M)$ only permutates states of $M$, and as $Aut(M)$ includes 'all' state machine automorphisms, it also includes the identity function.
     This concludes the proof, that $Aut(M)$ is a group.
     \qed
-    \item Assume, that there exists a $q \in Q$ such that $f(q) = q$. 
+    \item Let $q_1, q_2 \in Q$ arbitrary but fixed with $q_1 = q_2\delta_w$ with $w \in \Sigma*$ and $q_1 \neq q_2$. Lets assume, that $f(q_1) = q_1$. Since, $Aut(M)$ is a state machine homomorphism with $(f, id_\Sigma)$, 
+    \begin{equation}
+        f(q\delta_w) \subseteq (f(q))\delta'_{id(w)}
+    \end{equation}
+    holds true. For $q_1, q_2$ and $w$ this results in:
+    \begin{equation}
+        f(q_1) = (f(q_2))\delta_w
+    \end{equation}
+    \begin{equation}
+        q_1 = q_2'\delta_w | q_2 \in Q
+    \end{equation}
+    For (5.3) to be true, $q_2'$ would have to equal $q_2$, since $\delta$ and $\Sigma$ have not changed. This, however, would mean that if $f(q_1) = q_1 \rightarrow \forall q \in Q: f(q) = q$, since there exists a $w \in \Sigma*$ for all $q_1, q_2 \in Q$ with $q_1 = q_2\delta_w$, since, $M$ is transitive.
+    \item 
 \end{enumerate}
 
 \section{}
