@@ -61,16 +61,19 @@ Notice $q_j \neq q_k$ because $H_j \cap H_k = \emptyset$.
 This is a contraction because $q\delta_a$ is not right unique anymore.
 
 \section{}
-We proove for a transformation semigroup transformation $(Q,S)$ which is irreducable such that for all $q \in Q$ either $|qS| = 1$  or $qS = Q$.
+We proove for a transformation semigroup transformation $(Q,S)$ which is irreducable that for all $q \in Q$ either $|qS| = 1$  or $qS = Q$.
 Assume $|qS| = 1$ for a given $q \in Q$. This means we find one arbitray but fixed $q' \in Q$ such that $qS = q'$.
-Moreover, $q = H_i$ and $q' = H_j$ with $i,j \in I$, it is the trival partition of singleton classes.
+Thus, all states act the same and are equivalent, it is the trival partition of $Q$ itself.
 Now assume $qS = Q$ for a given $q \in Q$. This means for each $s \in S$ with $qs = q'$ we map to a different $q'$ such that $\bigcup q' = Q$.
-Thus, we get the trivial partition of $Q$.
+Thus, we find no relation between the state and get the trivial partition of singleton classes.
 
-Finally suppose $|qS| > 1 \land qS \neq Q$ for any $q \in Q$.
-Then there exists $qs' = q'$ and $qs'' = q''$ with $q' \in H_j, q'' \in H_k$ and $j \neq k$.
-Also notice that that there exists at least one other $s''' \in S$ which is also in $H_j$ or $H_k$ because otherwise $qS = Q$.
-Therefore 
+Finally suppose $|qS| > 1 \land qS \neq Q$ for all $q \in Q$.
+We can build the partition of $Q$ by states reachable of $q$ and not reachable by $q$.
+Let $$\pi = \{qS, Q \setminus qS\} = \{H_1, H_2\}$$.
+We show $\pi$ is an admissible partition for all $i \in I$ and all $s \in S$ there exists $j \in I$ such that $H_is \subseteq H_js$.
+% Then there exists $qs' = q'$ and $qs'' = q''$ with $s',s'' \in S, q' \in H_j, q'' \in H_k$ and $j \neq k$.
+% Also notice that that there exists at least one other $s''' \in S$ which is also in $H_j$ or $H_k$ because otherwise $qS = Q$.
+% Therefore we found a partition that is not trivial which contradicts the premise $(Q,S)$ is irreducable.
 % Then $qS$ maps into two or more patitions (up to $|Q|-1$) which contradicts the condition of $(Q,S)$ being irreducable.
 
 
