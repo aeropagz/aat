@@ -45,6 +45,23 @@
 \chapter{}
 \section{}
 \section{}
+An epimorphism $(\alpha, \beta): M_1 \rightarrow M_2$ with complete machines implies $M_2 \leq M_1$: \\
+We choose $\alpha : Q_1 \rightarrow Q_2$ as our $\eta: Q_1 \rightarrow Q_2$.
+We define $\xi: \Sigma_2 \rightarrow \Sigma_1$ as a function which picks an arbitrary element of $\xi_{a_2} = \{a_1 | \beta(a_1) = a_2, a_1 \in \Sigma_1\}$ for an arbitraty $a_2 \in \Sigma_2$ (1).
+There exists at least one $a_1$ for each $a_2$ because $\beta$ is surjective (2).
+Since $(\alpha,\beta)$ is a state machine homomorphismus and the maschines are complete following holds for all $a_1 \in \Sigma_1$ and all $q_1 \in Q_1$:
+$$
+\alpha(q_1\delta^1_{a_1}) = (\alpha(q_1))\delta^2_{\beta(a_1)}
+$$ 
+Now we show: $\eta(q_1)\delta^2_{a_2} \subseteq \eta(q_1\delta^1_{\xi(a_2)})$ for all $q_1 \in Q_1$ and $a_2 \in \Sigma_2$.
+
+\begin{align*}
+    \eta(q_1)\delta^2_{a_2} = & \alpha(q_1)\delta^2_{a_2} \\
+                 = & \alpha(q_1)\delta^2_{\beta(a_1)} \label{eq1}\tag{2} \\
+                 = & \alpha(q_1\delta^1_{a_1}) \\
+                 = & \alpha(q_1\delta^1_{\xi(a_2)})\label{eq2}\tag{1} \\
+                 = & \eta(q_1\delta^1_{\xi(a_2)})
+\end{align*}
 \section{}
 \section{}
 We show $M \leq M'$ by using the following covering $(\eta, \xi)$:
