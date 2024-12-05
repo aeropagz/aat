@@ -32,7 +32,7 @@
 \setkomafont{subparagraph}{\small}
 \usepackage[htt]{hyphenat}
 \usepackage[german]{babel}
-\setcounter{chapter}{3}
+\setcounter{chapter}{5}
 
 \def\lsk{\left<}
 \def\rsk{\right>}
@@ -42,59 +42,61 @@
 \automark{section}
 \automark{chapter}
 
-\setcounter{chapter}{4}
 \chapter{}
 \section{}
-We have $M = (Q, \Sigma, \delta)$ and $\pi = \{H_i\}_{i \in I}$ a admissible partion of $Q$.
-If $M$ is complete then for all $i \in I$ and for all $a \in \Sigma$ there exists \textbf{exactly one} partion such that for $j \in I$ $H_i\delta_a \subseteq H_j$.
-By definition of $\pi$ (Lemma 3.48) there exists \textbf{at least one} $j \in I$ with $H_i\delta_a \subseteq H_j$.
-Notice $H_i\delta_a \neq \emptyset$ because $M$ is complete.
-
-We show that there only exists \textbf{exactly one} $j \in I$.
-Suppose there exists $j,k \in I$ with $H_i\delta_a \subseteq H_{j,k}$ for all $a \in \Sigma$ and $j \neq k$.
-We choose an arbitrary $q \in H_i$ then the following must hold:
+\section{}
+\section{}
+\section{}
+We show $M \leq M'$ by using the following covering $(\eta, \xi)$:
 \begin{align*}
-    q\delta_a &= q_j \in H_j \\
-    q\delta_a &= q_k \in H_k \\
+    \eta: Q' \hookrightarrow Q; q' \mapsto &
+        \begin{cases}
+            q_0,      & \text{for } q' = r_0, \\
+            q_1,      & \text{for } q' = r_2, \\
+        \end{cases} \\
+    \xi: \Sigma \rightarrow \Sigma'; u \mapsto &
+        \begin{cases}
+            b',      & \text{for } u = a, \\
+            a',      & \text{for } u = b, \\
+        \end{cases}
 \end{align*}
-Notice $q_j \neq q_k$ because $H_j \cap H_k = \emptyset$.
-This is a contraction because $q\delta_a$ is not right unique anymore.
+Moreover we prove $\eta, \xi$ is well defined.
+First, $\xi$ is a function because all $dom(\xi) = \Sigma$ and it is right unique.
+$\eta$ is surjective as its range hits all states of $Q$.
+Also it is right unique and therefore a partial function.
+Finally, we show $\eta(q')\delta_w \subseteq \eta(q'\delta'_{\xi(w)})$ for all $q' \in Q'$ and $w \in \Sigma^*$.
+We build an operation table to get $\Sigma^+ / \sim_M$ to get all relevant $w$.
 
-\section{}
-Let $\pi = \{H_i\}_{i\in I}$ be an admissible partition on the irreducable transformation semigroup $(Q,S)$, than we know its equivalence classes are either singletons or the entire set $Q$.
-Now let's form the orbit for an arbitray $q \in Q$:  $qS = \{ q' | q' \in Q: qs = q' \}$. \\
-\textbf{Case 1:}\\
-In this case, the trivial partition on $Q$ is $Q$ itself.
-This means, that for all $q, q' \in Q$, we can find an action $s \in S$ such that $qs = q'$.
-Therefore, the cardinality of the orbit in this case is $|Q|$ itself.\\
-\textbf{Case 2:}\\
-In this case, the trivial partition on $Q$ is the set of singleton classes of $Q$.
-Here, each state $q \in Q$, is only able to reach itself via some $s \in S$, therefore, the cardinality of the orbit in this case has to be $1$.
+\begin{center}
+\begin{tabular}{c|cc|l}
+    x & $q_{0}$ & $q_{1}$ & \\ \hline
+    a & $q_1$ & $\bot$ & \\ 
+    b & $q_0$ & $q_1$ & \\ \hline
+    aa & $\bot$ & $\bot$ & \\
+    ab & $q_1$ & $\bot$ & same as a\\
+    bb & $q_0$ & $q_1$ & same as b\\ 
+    ba & $q_1$ & $\bot$ & same as a \\ \hline
+    aaa & $\bot$ & $\bot$ & same as aa \\
+    aab & $\bot$ & $\bot$ & same as aa \\
+    aba & $\bot$ & $\bot$ & same as aa \\
+    abb & $q_1$ & $\bot$ & same as a \\ 
+    bba & $q_1$ & $\bot$ & same as a \\ 
+    baa & $q_1$ & $\bot$ & same as aa \\ 
+    bab & $q_1$ & $\bot$ & same as a \\ 
+\end{tabular}
+\end{center}
+We get $\Sigma^+ / \sim_M = \{[a], [b], [aa]\}$.
+Since $\eta(q') = \emptyset | q' \notin \mathcal{D}(\eta)$ we only observe for $r_0, r_2$ as states from $M'$.
+We check for all relevant $q' \in Q'$ and $w in \Sigma$:
+\begin{align*}
+\eta(r_0)\delta_a = q_0\delta_a = q_1 \subseteq & \eta(r_0\delta_{\xi(a)}') = \eta(r_0\delta_{b'}') = \eta(r_2) = q_1 \\
+\eta(r_0)\delta_b = q_0\delta_b = q_0 \subseteq & \eta(r_0\delta_{\xi(b)}') = \eta(r_0\delta_{a'}') = \eta(r_0) = q_0 \\
+\eta(r_0)\delta_{aa} = q_0\delta_{aa} = \emptyset \subseteq & \eta(r_0\delta_{\xi(aa)}') = \eta(r_2\delta_{b'b'}') = \eta(\emptyset) = \emptyset \\
+\eta(r_2)\delta_a = q_1\delta_a = \emptyset \subseteq & \eta(r_2\delta_{\xi(a)}') = \eta(r_2\delta_{b'}') = \eta(r_3) = \emptyset \\
+\eta(r_2)\delta_b = q_1\delta_b = q_1 \subseteq & \eta(r_2\delta_{\xi(b)}') = \eta(r_2\delta_{a'}') = \eta(r_2) = q_1 \\
+\eta(r_2)\delta_{aa} = q_1\delta_{aa} = \emptyset \subseteq & \eta(r_2\delta_{\xi(aa)}')  = \eta(r_2\delta_{b'b'}') = \eta(\emptyset) = \emptyset\\
+\end{align*}
+For each combination $\eta(q')\delta_w \subseteq \eta(q'\delta'_{\xi(w)})$ holds which concludes the proof.
 \qed
-
-\section{}
-\begin{enumerate}
-    \item Since, $Aut(M)$ is the set of all state machine automorphisms, this means that $f$ is a bijective function on $Q \times Q$, therefore, it only permutates the states of M. As, $\Sigma$ is  mapped to $\Sigma$ by the identity function, the transactions $\delta$ of $M$ do not change.\\
-    Given Lemma 2.89, we know that given a set $Q$, $(S_Q, \circ, id_Q)$ is a group. We have already established that $Aut(M)$ only permutates states of $M$, and as $Aut(M)$ includes 'all' state machine automorphisms, it also includes the identity function.
-    This concludes the proof, that $Aut(M)$ is a group.
-    \qed
-    \item Let $q_1, q_2 \in Q$ arbitrary but fixed with $q_1 = q_2\delta_w$ with $w \in \Sigma*$ and $q_1 \neq q_2$. Lets assume, that $f(q_1) = q_1$. Since, $Aut(M)$ is a state machine homomorphism with $(f, id_\Sigma)$, 
-    \begin{equation}
-        f(q\delta_w) \subseteq (f(q))\delta'_{id(w)}
-    \end{equation}
-    holds true. For $q_1, q_2$ and $w$ this results in:
-    \begin{equation}
-        f(q_1) = (f(q_2))\delta_w
-    \end{equation}
-    \begin{equation}
-        q_1 = q_2'\delta_w | q_2 \in Q
-    \end{equation}
-    For (5.3) to be true, $q_2'$ would have to equal $q_2$, since $\delta$ and $\Sigma$ have not changed. This, however, would mean that if $f(q_1) = q_1 \rightarrow \forall q \in Q: f(q) = q$, since there exists a $w \in \Sigma*$ for all $q_1, q_2 \in Q$ with $q_1 = q_2\delta_w$, since, $M$ is transitive.
-    \item Since, $\sim$ is an equivalence relation between $q_1$ and $q_2$, we can use it to impose a partition on $Q$ which we will call $\pi$ with $\pi = \{H_i\}_{i\in I}$. Now, we need to show that $\pi$ is admissible. For this to hold true there needs to exists a $j \in I$ for all $i \in I$ and for all $a \in \Sigma$ such that $H_i\delta_a \subseteq H_j$. Since, $(f, id_\Sigma)$ is an automorphism it is isomorphic and therefore $f$ is bijective. This means that all equivalence classes of $\pi$ are singletons. Since, all equivalence classes are singletons, there can never be the case that two elements of one equivalence class is mapped to two different equivalence classes. Therefore, $\pi$ is admissible.
-    \qed
-\end{enumerate}
-
-\section{}
-joke's on you :)!
 \end{document}
 
