@@ -44,8 +44,8 @@
 
 \chapter{}
 \section{}
-\section{}
-An epimorphism $(\alpha, \beta): M_1 \rightarrow M_2$ with complete machines implies $M_2 \leq M_1$: \\
+\begin{enumerate}
+    \item An epimorphism $(\alpha, \beta): M_1 \rightarrow M_2$ with complete machines implies $M_2 \leq M_1$: \\
 We choose $\alpha : Q_1 \rightarrow Q_2$ as our $\eta: Q_1 \rightarrow Q_2$.
 We define $\xi: \Sigma_2 \rightarrow \Sigma_1$ as a function which picks an arbitrary element of $\xi_{a_2} = \{a_1 | \beta(a_1) = a_2, a_1 \in \Sigma_1\}$ for an arbitraty $a_2 \in \Sigma_2$ (1).
 There exists at least one $a_1$ for each $a_2$ because $\beta$ is surjective (2).
@@ -62,6 +62,21 @@ Now we show: $\eta(q_1)\delta^2_{a_2} \subseteq \eta(q_1\delta^1_{\xi(a_2)})$ fo
                  = & \alpha(q_1\delta^1_{\xi(a_2)})\label{eq2}\tag{1} \\
                  = & \eta(q_1\delta^1_{\xi(a_2)})
 \end{align*}
+\end{enumerate}
+
+\section{}
+For the covering relation to be a partial order it has to be \textit{reflexive, antisymmetric} and \textit{transitive}.\\
+\textbf{Proof:}\\
+Lets begin by showing that $\le$ is reflexive, for this let $M = (Q, \Sigma, \delta)$. We need to show that $M \le M$ is true. For $M$ to cover itself, there needs to exist a partial function $\eta: Q \rightarrow Q$ which is \begin{enumerate}
+    \item surjective
+    \item $\eta(q')\delta_w = \eta(q'\delta'_w)$ for all $w \in \Sigma^*$ and all $q' \in \mathcal{D}(\eta)$
+    \item $\eta(q') = \emptyset$ if $q' \notin \mathcal{D}(\eta)$
+    \item $q\delta_w = \emptyset$ if $ \delta(q, w)$ is undefined
+\end{enumerate}
+We use $id_Q$ for $\eta$, since, we do not need to change anything for $M$ to cover it self. $id_Q$ is surjective, because the identity function maps every element in $Q$ onto the same element in $Q$, therefore, it hits all elements in $Q$. Since, $\delta_w = \delta'_w$ the second primitive holds. The third holds for the identity function, since, it can only map an element to itself and if $q'$ is not in its domain (here $Q$ itself) it can not map it onto anything thus $id_Q(q') = \emptyset$ if $q' \notin \mathcal{D}(\eta)$. And the fourth holds because $M$ is complete.\\
+Next we show that $\le$ is \textit{antisymmetric}:\\ Let $M_1 = (Q, \Sigma, \delta), M_2=(Q', \Sigma, ,\delta'$ be two state machines with $M_1 \le M_2 \land M_2 \le M_1$. We need to show that for this $M_1 = M_2$. Since, $M_1 \le M_2 \land M_2 \le M_1$ we know there exists two partial functions $\eta : Q' \rightarrow Q \land \eta' : Q \rightarrow Q'$ which are surjective. Furthermore, we know that 
+$\eta(q')\delta_w = \eta(q'\delta'_w) $ for all $ w\in \Sigma^* $ and all $ q' \in \mathcal{D}(\eta)$ and $\eta(q)\delta'_w = \eta(q\delta_w)$ for all $w \in \Sigma^*$ and all $q \in \mathcal{D}(\eta')$ 
+
 \section{}
 \section{}
 We show $M \leq M'$ by using the following covering $(\eta, \xi)$:
