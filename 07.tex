@@ -1,0 +1,93 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{6}
+
+\def\lsk{\left<}
+\def\rsk{\right>}
+\DeclareMathOperator{\mmod}{mod}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+
+\chapter{}
+\section{}
+We prove $M \land N \leq M \times N$. Notice for $M \land N$ if $\Sigma_m \neq \Sigma_n$ then $M \land N = \emptyset$ which is always a subset of any set.
+Therefore, we assume from now on $\Sigma_m = \Sigma_n$.
+Also checkout these definitions:
+\begin{align*}
+    (q_m, q_n) (\delta_m \land \delta_n)_a = & (q_m \delta^m_a, q_n \delta^n_a)  \label{eq1}\tag{1}\\
+    (q_m, q_n) (\delta_m \times \delta_n)_{(a_m, a_n)} = & (q_m \delta^m_{a_m}, q_n \delta^n_{a_n})  \label{eq2}\tag{2}\\
+\end{align*}
+We choose for the covering $(\eta,\xi)$ $id_{(q_m, q_n)}$ as $\eta$ and define $\xi: \Sigma_n \rightarrow \Sigma_m \times \Sigma_n; a_m \mapsto (a_m, a_m)$.
+which is well-defined due the assumption $\Sigma_n = \Sigma_m$.
+
+Now we show $\eta((q_m, q_n)) (\delta^m \land \delta^n)_{a_m} \subseteq \eta((q_m,q_n) (\delta^m \times \delta^n)_{\xi(a_m)})$:
+\begin{align*}
+    \eta((q_m, q_n)) (\delta^m \land \delta^n)_{a_m} = & (q_m, q_n) (\delta^m \land \delta^n)_{a_m} \tag{def. $\eta$, 1}\\
+                               = & (q_m \delta^m_{a_m}, q_n \delta^n_{a_m}) \tag{2}\\
+                               = & (q_m, q_n) (\delta_m \times \delta_n)_{(a_m, a_m)} \tag{def. $\xi$}\\
+                               = & (q_m, q_n) (\delta_m \times \delta_n)_{\xi(a_m)} \tag{def. $\eta$}\\
+                               = & \eta((q_m,q_n) (\delta^m \times \delta^n)_{\xi(a_m)}) \\
+\end{align*}
+\qed
+\section{}
+\section{}
+We prove $P \leq N \omega R$ under the assumption $M \leq N$ and $P \leq M \omega R$.
+Let $\eta_1: Q_n \rightarrow Q_m$ and $\eta_2: Q_m \times Q_r \rightarrow Q_p$ be the $\eta$-functions of $M \leq N$ and $P \leq M \omega R$.
+Futhermore let $\xi_1: \Sigma_p \rightarrow \Sigma_r$ be the $\xi$-function of $P \leq M \omega R$.
+
+We define $\eta : Q_n \times Q_r \rightarrow Q_p; (q_n, q_r) \mapsto \eta_2(\eta_1(q_n), q_r)$.
+Moreover we choose $\xi_1$ as $\xi$.
+
+Finally, we show $\eta((q_n,q_r))\delta^p_{a_p} \subseteq \eta((q_n, q_r) \delta^\omega_{\xi(a_p)})$.
+\begin{align*}
+    \eta((q_n,q_r))\delta^p_{a_p} = & \eta_2((\eta_1 (q_n),q_r))\delta^p_{a_p} \tag{def. $\eta, \eta_1$} \\
+                      = & \eta_2(q_m,q_r))\delta^p_{a_p} \tag{def. $\eta_2$} \\
+                      = & q_p\delta^p_{a_p} \tag{$P \leq M \omega R$} \\
+                      \subseteq & \eta_2((q_m, q_r) \delta^\omega_{\xi(a_p)}) \tag{def. $\xi$}\\
+                      = & \eta_2((q_m, q_r) \delta^\omega_{a_r}) \tag{def. $\delta^\omega$}\\
+                      = & \eta_2((q_m \delta^m_{\omega_{a_r}(q_r)}, q_r \delta^r_{a_r})) \tag{def. $\omega$}\\
+                      = & \eta_2((q_m \delta^m_{a_m}, q_r \delta^r_{a_r})) \tag{$M \leq N$}\\
+                      = & \eta_2((\eta_1(q_n \delta^n_{a_n}), q_r \delta^r_{a_r})) \tag{def. $\eta$}\\
+                      = & \eta((q_n \delta^n_{a_n}, q_r \delta^r_{a_r})) \tag{def. $\omega$}\\
+                      = & \eta((q_n \delta^n_{\omega_{a_r}(q_r)}, q_r \delta^r_{a_r})) \tag{def. $\delta^\omega$}\\
+                      = & \eta((q_n, q_r) \delta^\omega_{a_r})) \tag{def. $\xi$}\\
+                      = & \eta((q_n, q_r) \delta^\omega_{\xi(a_p)}))
+\end{align*}
+\qed
+\section{}
+\end{document}
+
