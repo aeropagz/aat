@@ -64,10 +64,47 @@ Now we show $\eta((q_m, q_n)) (\delta^m \land \delta^n)_{a_m} \subseteq \eta((q_
 \end{align*}
 \qed
 \section{}
+Let $M_1, M_2, M_3$ three state machines. The claim is that $(M_1 \times M_2) \times M_3 \simeq M_1 \times (M_2 \times M_3)$ holds true. 
+Lets begin by looking at the definitions:\\
+\begin{equation}
+    M_1 \times M_2 = (Q \times Q', \Sigma \times \Sigma', \delta \times \delta')
+\end{equation}
+with 
+\begin{equation}
+    (q, q')(\delta \land \delta')_{(a, a')} = (q\delta_a, q'\delta'_{a'}) ~|~ q \in Q, q' \in Q', a \in \Sigma, a' \in \Sigma' 
+\end{equation}
+. Next we look at $(M_1 \times M_2) \times M_3$:\\
+\begin{equation}
+    (M_1 \times M_2) \times M_3 = ((Q \times Q')\times Q'', (\Sigma \times \Sigma') \times \Sigma'', (\delta \times \delta') \times \delta'') 
+\end{equation}
+with 
+\begin{equation}
+    ((q, q'), q'')((\delta \land \delta')\land \delta'')_{((a, a'), a'')} = ((q\delta_a, q'\delta'_{a'}), q''\delta''_{a''} )
+\end{equation}
+. Likewise, $M_1 \times (M_2 \times M_3)$ looks like the following:
+\begin{equation}
+    M_1 \times (M_2 \times M_3) = (Q \times (Q' \times Q''), \Sigma \times (\Sigma' \times \Sigma''), \delta \times (\delta' \times \delta''))
+\end{equation}
+with 
+\begin{equation}
+    (q, (q', q''))(\delta \land (\delta' \land \delta''))_{(a, (a' , a''))} = (q\delta_a, (q'\delta'_{a'} , q''\delta''_{a''}))
+\end{equation}
+
+To show that $(M_1 \times M_2) \times M_3 \simeq M_1 \times (M_2 \times M_3)$ holds true we need to find a bijection that translates $(M_1 \times M_2) \times M_3$ into $M_1 \times (M_2 \times M_3)$:\\
+Define $\alpha: (Q\times Q') \times Q'' \rightarrow Q \times (Q' \times Q'') : ((q, q'), q'') \mapsto (q, (q', q'')$ and $\beta : (\Sigma \times \Sigma') \times \Sigma'' \rightarrow \Sigma \times (\Sigma' \times \Sigma'') : (a, a'), a'' \mapsto a, (a', a'')$ as bijective functions.
+Now we need to show that 
+\begin{equation}
+    \alpha((q,q'),q'')((\delta \land \delta') \land \delta'')_{((a, a'), a'')}) \subseteq (\alpha((q,q'),q''))(\delta \land (\delta' \land \delta'')_{\beta((a, a'), a'')}
+\end{equation}
+Proof:\\
+\begin{align*}
+    \alpha((q,q'),q'')((\delta \land \delta') \land \delta'')_{((a, a'), a'')}) \subseteq & (q, (q', q''))(\delta \land (\delta' \land \delta'')_{a, (a', a'')}\\
+                    = & (q\delta_a, (q'\delta'_{a'} , q''\delta''_{a''}))
+\end{align*}
 \section{}
 We prove $P \leq N \omega R$ under the assumption $M \leq N$ and $P \leq M \omega R$.
 Let $\eta_1: Q_n \rightarrow Q_m$ and $\eta_2: Q_m \times Q_r \rightarrow Q_p$ be the $\eta$-functions of $M \leq N$ and $P \leq M \omega R$.
-Futhermore let $\xi_1: \Sigma_p \rightarrow \Sigma_r$ be the $\xi$-function of $P \leq M \omega R$.
+Furthermore, let $\xi_1: \Sigma_p \rightarrow \Sigma_r$ be the $\xi$-function of $P \leq M \omega R$.
 
 We define $\eta : Q_n \times Q_r \rightarrow Q_p; (q_n, q_r) \mapsto \eta_2(\eta_1(q_n), q_r)$.
 Moreover we choose $\xi_1$ as $\xi$.
