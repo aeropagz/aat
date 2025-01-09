@@ -1,0 +1,71 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{7}
+
+\def\lsk{\left<}
+\def\rsk{\right>}
+\DeclareMathOperator{\mmod}{mod}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+
+\chapter{}
+\section{}
+\section{}
+Let $M = (Q, \Sigma, \delta)$, $P \subseteq Q$, $M|_P=(P, \Sigma, \delta|_P)$ and $\delta|_P: P \times \Sigma \rightarrow \Sigma$ is undefinded for all $q \in Q\setminus P$.
+We define $S(M|_P) = \Sigma^+ / \sim_{M|_P}$ with $u \sim_{M|_P} v$ iff $\delta_u|_P = \delta_v|_P$.
+To obtain $S(M|_P)$ you can build an operation table with $\delta|_P$ and all $p \in P$ for all $a \in \Sigma^+$.
+
+Finally, we construct $TS(M|_P) = (P, S(M|_P))$.
+\qed
+\section{}
+\section{}
+We prove for a given function $g \in S^T$, $(S^T \times T, \wr)$ is a semigroup.
+Notice $\wr$ is a closed binary operation by definition as it is a function and is closed:
+\begin{align*}
+    \wr: (S^T \times T) \times (S^T \times T) \rightarrow (S^T \times T)
+\end{align*}
+So we just have to show $\wr$ is associative:
+\begin{align*}
+    ((f,t) \wr (g, t')) \wr (h, t'') &= (fg_{t}, tt') \wr (h, t'') \\
+                                     &= (fg_{t'}h_{tt'}, tt't''') \\
+    (f,t) \wr ((g,t') \wr (h, t'')) &= (f,t) \wr (gh_{t'}, t't'') \\
+                                    &= (fg_{t}h_{tt'}, tt't'')
+\end{align*}
+Notice $gh_{t'} = x \mapsto g(x)h(xt')$ and $(gh_{t'})_t = x \mapsto g(xt)h(xt't) = g_th_{tt'}$.
+\qed
+\end{document}
+
