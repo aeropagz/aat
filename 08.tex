@@ -44,6 +44,22 @@
 
 \chapter{}
 \section{}
+In this task we have a state machine $M = (Q, \Sigma, \delta)$. Given that, we want to prove that $G = \{x \in S(M)|Qx = Q\}$ is a group, assuming $G$ is non-empty. 
+We start with the closure property:
+Let $x,y \in G$, we need to show that $x \circ y \in G$, since, $x, y \in G$ implies $Qx= Q \land Qy = Q$ this means that we can apply $x$ or $y$ to any state in $Q$ and remain in $Q$. If we now compose the two functions $Q(x \circ y) = Q$ holds because composing two transformations that preserve Q, will also preserve Q, thus the closure holds. 
+Next we show that G is a semigroup containing a neutral element:\\
+We equip $G$ with a the closed binary operation function composition $\circ$ : $(G, \circ)$, for this to be a semigroup we need to show that it is associative: Let $a,b,c \in G$, we need to show that
+\begin{equation}
+    (a \circ b) \circ c = a \circ (b \circ c)
+\end{equation}
+holds. Since, we are concatenating input words for $S(M)$ this holds true. Next we need to show that there exists a neutral element:
+\begin{equation}
+    e \circ x = x \circ e = x
+\end{equation}
+In the context of state machines, e is the identity transformation, since $Qe = Q, e \in G$ it satisfies the identity property.
+Next we need to show, that there exists an inverse element for each element in G. Since $Qx = Q$, x must be a bijective transformation on Q, therefore, there has to exist an inverse for every element because bijective functions always have inverses.
+This concludes the proof that $G$ is a group. 
+
 \section{}
 Let $M = (Q, \Sigma, \delta)$, $P \subseteq Q$, $M|_P=(P, \Sigma, \delta|_P)$ and $\delta|_P: P \times \Sigma \rightarrow \Sigma$ is undefinded for all $q \in Q\setminus P$.
 We define $S(M|_P) = \Sigma^+ / \sim_{M|_P}$ with $u \sim_{M|_P} v$ iff $\delta_u|_P = \delta_v|_P$.
