@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt,numbers=noenddot]{scrreport}
+
+\usepackage[german]{datetime2}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+\usepackage{scrlayer-scrpage}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\clearpairofpagestyles
+
+\ohead{\normalfont \today}
+\chead{\normalfont Algebraic Automata Theory}
+\ihead{\normalfont \rightmark}
+
+\ofoot{\normalfont Seite~\pagemark}
+\cfoot{\normalfont CAU Kiel - Technische Fakultät}
+\ifoot{\normalfont Eric Hotho, Klaas Pelzer}
+
+\KOMAoptions{headsepline=true,footsepline=true}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-.4cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{.5cm}}
+
+\setlength{\parindent}{0pt}
+
+\setkomafont{chapter}{\LARGE}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\small}
+\usepackage[htt]{hyphenat}
+\usepackage[german]{babel}
+\setcounter{chapter}{8}
+
+\def\lsk{\left<}
+\def\rsk{\right>}
+\DeclareMathOperator{\mmod}{mod}
+
+\begin{document}
+\automark{section}
+\automark{chapter}
+
+\chapter{}
+\section{}
+We prove that if $M \leq N_1 \omega_1 N_2 ... N_{n-1}\omega_{n-1} N_n$ then $TS(M) \leq TS(N_1) \wr ... \wr TS(N_n)$.
+By 4.10 
+$$TS(M) \leq TS(N_1 \omega_1 N_2 ... N_{n-1}\omega_{n-1} N_n)$$ holds true.
+By 6.22 the cascade product is covered by the wreath product which results in 
+$$TS(N_1 \omega_1 N_2 ... N_{n-1}\omega_{n-1} N_n) \leq TS(N_1 \wr ... \wr N_n)$$.
+This concludes the proof.
+\section{}
+\section{}
+\section{}
+We can find admissable partitions for example:
+$$\pi = \{\{q_0\}, \{q_1, q_2, q_3, q_4\}\}, \tau = \{\{q_1, q_3\}, \{q_0, q_2, q_4\}\}$$
+However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because for an input of multiple $b \in \Sigma$ all transistions will eventually end in $q_1 \in Q$ where is no escape, thus $\pi \cap \tau = \emptyset$.
+Therefore the only partition with the $id_Q$ function is the trivial partition of whole $Q$ which is a contradiction.
+\qed
+\end{document}
+
