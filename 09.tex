@@ -55,8 +55,8 @@ This concludes the proof.
 \section{}
 We can find admissable partitions for example:
 $$\pi = \{\{q_0\}, \{q_1, q_2, q_3, q_4\}\}, \tau = \{\{q_1, q_3\}, \{q_0, q_2, q_4\}\}$$
-However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because for an input of multiple $b \in \Sigma$ all transistions will eventually end in $q_1 \in Q$ where is no escape, thus $\pi \cap \tau = \emptyset$.
-Therefore the only partition with the $id_Q$ function is the trivial partition of whole $Q$ which is a contradiction.
+However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because $q_2, q_4 \in Q$ are thightly coupled such that in each partition $q_2, q_4$ are in the same block.
+Therefore we never find $\pi, \tau$ with $\pi \cap \tau = id_Q$ because ${q_2, q_4}$ is always a subset of the intersection.
 \qed
 \end{document}
 
