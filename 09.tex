@@ -52,10 +52,24 @@ $$TS(N_1 \omega_1 N_2 ... N_{n-1}\omega_{n-1} N_n) \leq TS(N_1 \wr ... \wr N_n)$
 This concludes the proof.
 \section{}
 \section{}
+Let $M = (Q, \Sigma, \delta)$ be a reset machine with at least two states. The claim is that then for all $q_1, q_2 \in Q$, the partition $\pi = \{\{q_1, q_2\}, Q\backslash\{q_1, q_2\}\}$ is admissible and orthogonal.
+Using Lemma $7.13$ we can skip the proof that $\pi$ is an admissible partition, and we only need to show that it is orthogonal. To show this we need to find another admissible partition $\tau$ of $M$ s.t. $\pi \cap \tau = id_Q$.\\
+Lets look at the characteristics that $\tau$ needs to have in order for the intersection to yield only $id_Q$. For this, there can not exist $q_1$ and $q_2$ can not be together in one block of the partition, since its intersection would yield $q_1$ and $q_2$ as a result. Therefore, we take the partition WLOG. $\tau = \{\{q_1, q_3\}, \{q_2\}, \{q_i\}_{i \in (|Q| - 3)\backslash \{1,2,3\}}\}$, if we intersect $\tau$ with $\pi$, we will only get singleton blocks as a result because:
+\begin{align*}
+    \{q_1, q_2\}                                    &\cap \{q_1, q_3\} = \{q_1\} \\
+    \{q_1, q_2\}                                    &\cap \{q_2\} = \{q_2\} \\
+    \{Q\backslash\{q_1, q_2\}\}                     &\cap \{q_1, q_3\} = \{q_3\}\\ 
+    \{q_1, q_2\}                                    &\cap \{q_i\}_{i \in (|Q| - 3)\backslash \{1,2,3\}} = \{\}\\
+    \{q_i\}_{i \in (|Q| - 3)\backslash \{1,2,3\}}   &\cap \{Q\backslash\{q_1, q_2\}\} = \{q_i\}_{i \in (|Q| - 3)\backslash \{1,2,3\}}\\
+    ~\\
+    \bigcup \pi &\cap \tau = Q  
+\end{align*}
+And since $M$ is a reset machine, all partitions of it are admissible and therefore, also $\tau$. This concludes the proof.
+\qed
 \section{}
-We can find admissable partitions for example:
+We can find admissible partitions for example:
 $$\pi = \{\{q_0\}, \{q_1, q_2, q_3, q_4\}\}, \tau = \{\{q_1, q_3\}, \{q_0, q_2, q_4\}\}$$
-However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because $q_2, q_4 \in Q$ are thightly coupled such that in each partition $q_2, q_4$ are in the same block.
+However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because $q_2, q_4 \in Q$ are tightly coupled such that in each partition $q_2, q_4$ are in the same block.
 Therefore we never find $\pi, \tau$ with $\pi \cap \tau = id_Q$ because ${q_2, q_4}$ is always a subset of the intersection.
 \qed
 \end{document}
