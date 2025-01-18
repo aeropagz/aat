@@ -67,10 +67,30 @@ Lets look at the characteristics that $\tau$ needs to have in order for the inte
 And since $M$ is a reset machine, all partitions of it are admissible and therefore, also $\tau$. This concludes the proof.
 \qed
 \section{}
-We can find admissible partitions for example:
-$$\pi = \{\{q_0\}, \{q_1, q_2, q_3, q_4\}\}, \tau = \{\{q_1, q_3\}, \{q_0, q_2, q_4\}\}$$
-However we never find an orthogonal partition with $\pi \cap \tau = id_Q$ because $q_2, q_4 \in Q$ are tightly coupled such that in each partition $q_2, q_4$ are in the same block.
-Therefore we never find $\pi, \tau$ with $\pi \cap \tau = id_Q$ because ${q_2, q_4}$ is always a subset of the intersection.
+We use the partition $\pi = \{\{q_0, q_2,q_4\}, \{q_1, q_3\}\}$ and $\tau = \{\{q_0, q_1\}, \{q_2, q_3\}, \{q_4\}\}$. First we show that both $\pi$ and $\tau$ are admissible partitions and after that we show that they are orthogonal.\\
+\begin{align*}
+    \{q_0, q_2,q_4\}\delta_a    &= \{q_0, q_2,q_4\}\\
+    \{q_0, q_2,q_4\}\delta_b    &= \{q_1, q_3\}\\
+    \{q_1, q_3\}\delta_a        &= \{q_1, q_3\}\\
+    \{q_1, q_3\}\delta_b        &= \{q_1, q_3\}\\
+    ~\\
+    \{q_0, q_1\}\delta_a        &= \{q_2, q_3\}\\
+    \{q_0, q_1\}\delta_b        &= \{q_0, q_1\}\\
+    \{q_2, q_3\}\delta_a        &= \{q_4\}\\
+    \{q_2, q_3\}\delta_b        &= \{q_0, q_1\}\\
+    \{q_4\}\delta_a             &= \{q_2, q_3\}\\
+    \{q_4\}\delta_b             &= \{q_2, q_3\}\\
+\end{align*}
+Next we show that $\pi \cap \tau = id_Q$:\\
+\begin{align*}
+    \{q_0, q_2,q_4\}    &\cap \{q_0, q_1\}  &= \{q_0\}\\
+    \{q_0, q_2,q_4\}    &\cap \{q_2, q_3\}  &= \{q_2\}\\
+    \{q_0, q_2,q_4\}    &\cap \{q_4\}       &= \{q_4\}\\
+    \{q_1, q_3\}        &\cap \{q_0, q_1\}  &= \{q_1\}\\
+    \{q_1, q_3\}        &\cap \{q_2, q_3\}  &= \{q_3\}\\
+    \{q_1, q_3\}        &\cap \{q_4\}       &= \{\}\\
+\end{align*}
+This concludes the proof. 
 \qed
 \end{document}
 
