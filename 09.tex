@@ -51,6 +51,27 @@ By 6.22 the cascade product is covered by the wreath product which results in
 $$TS(N_1 \omega_1 N_2 ... N_{n-1}\omega_{n-1} N_n) \leq TS(N_1 \wr ... \wr N_n)$$.
 This concludes the proof.
 \section{}
+We show $A \leq A/\pi \times A/\tau$.
+Notice, with $S', S'' \subseteq S$:
+\begin{align*}
+    A &= (Q, S) \\
+    A/\pi \times A/\tau &= (\pi, S') \times (\tau, S'') \rightarrow (\pi \times \tau, S' \times S'');\\
+    &(q', s') \times (q'', s'') \mapsto (q's', q''s'')
+\end{align*}
+
+We define $\eta: (\pi \times \tau) \rightarrow Q; (g, h) \mapsto g \cap h$ which is surjective partial and results into one singleton of $Q$ or is the emptyset due to the orthogonal property.
+$$\pi \cap \tau = id_Q$$
+Finally, we show $\eta((g,h))s \subseteq \eta((g,h)(s',s''))$ with $g \in \pi, h \in \tau, s' \in S_{\sim_\pi}, s'' \in S_{\sim_\tau}$.
+\begin{align*}
+    \eta((g,h))s &= qs \\
+                 &= q' \tag{1} \\
+                 & \subseteq \eta((g', h')) \tag{2} \\
+                 &= \eta((gs', hs'')) \\
+                 &= \eta((g,h)(s',s''))
+\end{align*}
+$(1)$ By definition of $\eta$ there exists for each $q \in Q$ one block of each partition that maps to $q$ or is empty which is still valid.
+
+$(2)$ By definition of admissible partitions for any $g' \in H$ there exists an $s' \in S/\sim$ and a partition $g \in H$ with $g' = gs'$.
 \section{}
 Let $M = (Q, \Sigma, \delta)$ be a reset machine with at least two states. The claim is that then for all $q_1, q_2 \in Q$, the partition $\pi = \{\{q_1, q_2\}, Q\backslash\{q_1, q_2\}\}$ is admissible and orthogonal.
 Using Lemma $7.13$ we can skip the proof that $\pi$ is an admissible partition, and we only need to show that it is orthogonal. To show this we need to find another admissible partition $\tau$ of $M$ s.t. $\pi \cap \tau = id_Q$.\\
