@@ -7,6 +7,7 @@
 \usepackage{multirow}
 \usepackage{mathrsfs}
 \usepackage{colortbl}
+\usepackage{enumerate}
 
 \usepackage{scrlayer-scrpage}
 \renewcommand*{\chapterpagestyle}{scrheadings}
@@ -46,6 +47,26 @@
 
 \chapter{}
 \section{}
+We prove that a connected transformation group $A=(Q,G)$ is primitive iff it is irreducable.
+
+primiitive $\implies$ irreducable: $A$ does not contain any primitive block $P \subset Q$ with $|P| \geq 2$
+and $P \cap Pg \in \{P, \emptyset \}$ for all $g \in G$.
+Suppose $A$ is reducable which means $|Q| \leq 1$ or there exists an admissable partition of $Q$ that is not trivial
+Since $G$ is transitive, $Q$ has at least two states which contradicts $|Q| \leq 1$.\\
+Suppose there exists a non trivial admissable partition $\pi = \{H_i\}_{i \in I}$.
+For all $i \in I$ and all $g \in G$ there exists $j \in I$ with $H_ig \subseteq H_j$.
+Notice, $i \neq j$ because otherwise $P = H_i$ and $P \cap Pg = P$.
+Thus, $H_i \cap H_j = \emptyset$ but then it follows that $P \subseteq H_i$ and $P \cap Pg = \emptyset$ - a contradiction.
+
+irreducable $\implies$ primitive: $A$ is irreducable which means $|Q| > 1$ and all admissable partitions are trivial.
+Suppose $A$ is imprimitive.
+Thus, the group produces a primitive block system with some blocks $P \subset Q$ with $|P| \geq 2$ and $P \cap Pg \in \{P, \emptyset\}$ for all $g \in G$.
+The block system creates an admissable partition $\pi$ of $Q$ with for all $P \in \pi: 2 \leq |P| < |Q|$.
+This contradicts the assumption of $A$ only containing trivial admissable partitions.
+\vspace{1cm}
+
+This concludes the proof. \qed
+
 \section{}
 \section{}
 \section{}
