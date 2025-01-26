@@ -60,12 +60,23 @@ Thus, $H_i \cap H_j = \emptyset$ but then it follows that $P \subseteq H_i$ and 
 
 irreducable $\implies$ primitive: $A$ is irreducable which means $|Q| > 1$ and all admissable partitions are trivial.
 Suppose $A$ is imprimitive.
-Thus, the group produces a primitive block system with some blocks $P \subset Q$ with $|P| \geq 2$ and $P \cap Pg \in \{P, \emptyset\}$ for all $g \in G$.
-The block system creates an admissable partition $\pi$ of $Q$ with for all $P \in \pi: 2 \leq |P| < |Q|$.
-This contradicts the assumption of $A$ only containing trivial admissable partitions.
-\vspace{1cm}
+Thus, the group produces a block system with primitive blocks $P \subset Q$ with $|P| \geq 2$ and $P \cap Pg \in \{P, \emptyset\}$ for all $g \in G$.
 
-This concludes the proof. \qed
+A primitive block produces a partition by the right coset  $\pi = \{Pg | g \in G\}$.
+We prove that by showing $Pg_1 \cap Pg_2 = \emptyset$.
+Suppose there exists an element $x \in Pg_1 \cap Pg_2$.
+Then $x = p_1g_1 = p_2g_2$ and $p_1 = p_2g_2g^{-1}_1$. 
+Therefore $p_1 \in P$ and also $p_1 \in Pg_2g^{-1}_1$ following 
+\begin{align*}
+    P &= Pg_2g^{-1}_1\\
+    Pg_1 &= Pg_2
+\end{align*}
+shows that $pg_1$ and $pg_2$ are in the same primitive block.
+
+Now we show $\pi = \{ Pg | g \in G\}$ is an admissable partition.
+
+Finally this contradicts the assumption of $A$ only containing trivial admissable partitions.
+\qed
 
 \section{}
 \section{}
