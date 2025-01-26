@@ -8,6 +8,7 @@
 \usepackage{mathrsfs}
 \usepackage{colortbl}
 \usepackage{enumerate}
+\usepackage{graphicx} % Required for inserting images
 
 \usepackage{scrlayer-scrpage}
 \renewcommand*{\chapterpagestyle}{scrheadings}
@@ -79,7 +80,50 @@ Finally this contradicts the assumption of $A$ only containing trivial admissabl
 \qed
 
 \section{}
+We want to show the following: Let $G$ be a finite group, then TS$(SM(\mathcal{G})) = (G,\mathsf{G})$ with $\mathsf{G}= \{ [g]|g\in G\}$.\\
+For this lets have a look at the definitions:
+\begin{align*}
+    TS(SM(\mathcal{G})) &= TS((G,G,\delta)) \tag{Def. 8.10} \\
+                        &= (G, S(\mathcal{G})) \tag{3.18} \\
+                        &= (G, \mathsf{G}) \tag{(1), 3.10}\\ 
+\end{align*}
+Regarding (1), as per definition in the script $S(M) = \Sigma^+ \backslash \sim_M$ which describes the equivalence classes over all words of M defined by the congruence relation $\sim_M$, thus, it is equivalent to $\mathsf{G}= \{ [g]|g\in G\}$.
 \section{}
 \section{}
+We begin by constructing the permutation machine as depicted in \ref{fig:permutation machine}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Permutation_Machine.png}
+    \caption{Permutation machine}
+    \label{fig:permutation machine}
+\end{figure}
+Next we define the reset machine as follows: $N = (Q, (\mathbb{Z}_5 \times \Sigma) \cup \{\lambda\}, \delta')$ with \\
+\begin{center}
+    \begin{tabular}{ c | c c c c c }
+        ~               & $q_0$         & $q_1$       & $q_2$       & $q_3$       & $q_4$\\
+        \hline
+        $\lambda$         & $q_0$         & $q_1$       & $q_2$       & $q_3$       & $q_4$ \\
+        $([a], a)$      & $q_1$         & $q_2$       & $q_3$       & $q_4$       & $q_0$ \\
+        $([a], c)$      & $\bot$        & $q_0$       & $\bot$      & $q_0$       & $q_0$ \\
+        $([a], d)$      & $\bot$        & $\bot$      & $q_3$       & $q_3$       & $\bot$ \\
+        $([a], b)$      & $q_2$          & $q_1$        & $q_3$        & $q_0$          & $q_4$ \\
+        $([a^2], a)$    & $q_1$        & $q_2$        & $q_3$        & $q_4$        & $q_0$ \\
+        $([a^2], c)$    & $q_4$        & $\bot$        & $q_4$        & $q_4$        & $\bot$ \\
+        $([a^2], d)$    & $\bot$        & $q_2$        & $q_2$        & $\bot$        & $\bot$ \\
+        $([a^2], b)$      & $q_0$          & $q_2$        & $q_4$        & $q_3$          & $q_1$ \\
+        $([a^3], a)$    & $q_1$        & $q_2$        & $q_3$        & $q_4$        & $q_0$ \\
+        $([a^3], c)$    & $\bot$        & $q_3$        & $q_3$        & $\bot$        & $q_3$ \\
+        $([a^3], d)$    & $q_1$        & $q_1$        & $\bot$        & $\bot$        & $\bot$ \\
+        $([a^3], b)$      & $q_1$          & $q_3$        & $q_2$        & $q_0$          & $q_4$ \\
+        $([a^4], a)$    & $q_1$        & $q_2$            & $q_3$          & $q_4$      & $q_0$ \\
+        $([a^4], c)$    & $q_2$        & $q_2$            & $\bot$          & $q_2$      & $\bot$ \\
+        $([a^4], d)$    & $q_0$        & $\bot$           & $\bot$          & $\bot$      & $q_0$ \\
+        $([a^4], b)$      & $q_2$          & $q_1$        & $q_4$        & $q_3$          & $q_0$ \\
+        $([a^5], a)$    & $q_1$        & $q_2$            & $q_3$          & $q_4$      & $q_0$ \\
+        $([a^5], c)$    & $q_1$        & $\bot$            & $q_1$          & $\bot$     & $q_1$ \\
+        $([a^5], d)$    & $\bot$        & $\bot$           & $\bot$         & $q_4$      & $q_4$ \\
+        $([a^5], b)$      & $q_0$          & $q_3$        & $q_2$        & $q_4$          & $q_1$ \\
+    \end{tabular}
+\end{center}
 \end{document}
 
