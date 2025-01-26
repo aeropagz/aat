@@ -88,10 +88,11 @@ For this lets have a look at the definitions:
                         &= (G, \mathsf{G}) \tag{(1), 3.10}\\ 
 \end{align*}
 Regarding (1), as per definition in the script $S(M) = \Sigma^+ \backslash \sim_M$ which describes the equivalence classes over all words of M defined by the congruence relation $\sim_M$, thus, it is equivalent to $\mathsf{G}= \{ [g]|g\in G\}$.
+\qed
 \section{}
 \section{}
 We begin by constructing the permutation machine as depicted in \ref{fig:permutation machine}.
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{Permutation_Machine.png}
     \caption{Permutation machine}
@@ -125,5 +126,7 @@ Next we define the reset machine as follows: $N = (Q, (\mathbb{Z}_5 \times \Sigm
         $([a^5], b)$      & $q_0$          & $q_3$        & $q_2$        & $q_4$          & $q_1$ \\
     \end{tabular}
 \end{center}
+Then we get $TS(M) \leq N\omega P $.
+\qed
 \end{document}
 
