@@ -52,7 +52,7 @@ We prove that a connected transformation group $A=(Q,G)$ is primitive iff it is 
 
 primiitive $\implies$ irreducable: $A$ does not contain any primitive block $P \subset Q$ with $|P| \geq 2$
 and $P \cap Pg \in \{P, \emptyset \}$ for all $g \in G$.
-Suppose $A$ is reducable which means $|Q| \leq 1$ or there exists an admissable partition of $Q$ that is not trivial
+Suppose $A$ is reducable which means $|Q| \leq 1$ or there exists an admissable partition of $Q$ that is not trivial.
 Since $G$ is transitive, $Q$ has at least two states which contradicts $|Q| \leq 1$.\\
 Suppose there exists a non trivial admissable partition $\pi = \{H_i\}_{i \in I}$.
 For all $i \in I$ and all $g \in G$ there exists $j \in I$ with $H_ig \subseteq H_j$.
@@ -74,9 +74,10 @@ Therefore $p_1 \in P$ and also $p_1 \in Pg_2g^{-1}_1$ following
 \end{align*}
 shows that $pg_1$ and $pg_2$ are in the same primitive block.
 
-Now we show $\pi = \{ Pg | g \in G\}$ is an admissable partition.
+By Lemma 8.12 any subgroup and its right coset builds also an admissable partition which is not trivial due to $2 \leq |P| < |Q|$.
+This contradicts the assumption $A$ being irreducable.
 
-Finally this contradicts the assumption of $A$ only containing trivial admissable partitions.
+We showed that both directions hold true which concludes the proof.
 \qed
 
 \section{}
